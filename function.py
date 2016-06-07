@@ -5,10 +5,7 @@ import urllib
 import urllib2
 import boto3
 
-print('Loading function')
-
 s3 = boto3.client('s3')
-
 
 def lambda_handler(event, context):
     # print("Received event: " + json.dumps(event))
@@ -50,5 +47,5 @@ def lambda_handler(event, context):
       #End Kraken.io execution
     except Exception as e:
         print(e)
-        print('Error getting object {} from bucket {}. Make sure they exist and your bucket is in the same region as this function.'.format(key, bucket))
+        print('Error optimizing object {} from bucket {}.'.format(key, bucket))
         raise e

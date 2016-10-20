@@ -17,14 +17,14 @@ def lambda_handler(event, context):
     # Start Kraken.io Config
     params = {
         'auth': {
-            'api_key': 'AWS_IDENTITY_API_PUBLIC',
-            'api_secret': 'AWS_IDENTITY_API_SECRET'
+            'api_key': 'KRAKEN_API_KEY',
+            'api_secret': 'KRAKEN_SECRET_KEY'
         },
         'url': 'AWS_CDN_URL' + key,
         's3_store': {
-            'key': 'KRAKEN_PUBLIC_KEY',
-            'secret': 'KRAKEN_SECRET_KEY',
-            'bucket': 'BUCKET_NAME',
+            'key': 'AWS_IDENTITY_KEY', // Credentials from IAM
+            'secret': 'AWS_IDENTITY_SECRET', // Credentials from IAM
+            'bucket': 'BUCKET_NAME', // Your bucket name
             'path': key
         },
         'wait': True,
